@@ -27,10 +27,12 @@ const displayShow=books=>{
     else{
         errorMessge.innerText="";
     }
-    // console.log(books)
+    console.log(books)
     //forEach use of array part
     books.forEach(book =>{
+        console.log(book);
         const div=document.createElement('div');
+        
         div.classList.add('col');
         const url = ` https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`;
         // console.log(url)
@@ -47,6 +49,7 @@ const displayShow=books=>{
                         <p class = "card-text">Publish-Date:${book.publish_date[0]} </p>
                 </div>
             </div>`;
+            
             divBox.appendChild(div);
 
     })
