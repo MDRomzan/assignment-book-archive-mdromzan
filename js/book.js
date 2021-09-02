@@ -1,16 +1,9 @@
-
-const searchInput=document.getElementById ('search-input');
-const divBox=document.getElementById('div-box');
+//search input part
+const searchInput=document.getElementById ('search-input');const divBox=document.getElementById('div-box');
 const errorMessge=document.getElementById('error-messge');
-
-
-
-
-
+//arrow function part 
 const searchButton=()=>{
     const searchText=searchInput.value;
-    
-    
     searchInput.value = "";
     if(searchText==0){
         errorMessge.innerText='search field cannot be empty ';
@@ -18,8 +11,6 @@ const searchButton=()=>{
     }
     else{
          const url = ` http://openlibrary.org/search.json?q=${searchText}`;
-
-         
          fetch(url)
              .then(res => res.json())
              .then(data => displayShow(data.docs));
@@ -27,6 +18,7 @@ const searchButton=()=>{
    
     
 }
+//display show part all books
 const displayShow=books=>{
     divBox.innerHTML = "";
     if(books.message =="Not Found"){
@@ -36,11 +28,13 @@ const displayShow=books=>{
         errorMessge.innerText="";
     }
     // console.log(books)
+    //forEach use of array part
     books.forEach(book =>{
         const div=document.createElement('div');
         div.classList.add('col');
         const url = ` https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`;
         // console.log(url)
+        //all dynamic html part
         div.innerHTML = `
             <div class="card">
                         <img height=200 src = "${url}"
