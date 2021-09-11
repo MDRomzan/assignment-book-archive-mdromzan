@@ -10,7 +10,7 @@ const searchButton=()=>{
         return;
     }
     else{
-         const url = ` http://openlibrary.org/search.json?q=${searchText}`;
+         const url = ` https://openlibrary.org/search.json?q=${searchText}`;
          fetch(url)
              .then(res => res.json())
              .then(data => displayShow(data.docs));
@@ -44,9 +44,9 @@ const displayShow=books=>{
                         alt = "...">
                 <div class="card-body">
                     <h5 class="card-title">${book.text[1]}</h5>
-                        <p class="card-text">Author by:${book.author_name[0]}</p>
+                        <p class="card-text">Author by:${book.author_name}</p>
                         <p class = "card-text">First-Publish:${book.first_publish_year} </p>
-                        <p class = "card-text">Publish-Date:${book.publish_date[0]} </p>
+                        <p class = "card-text">Publish-Date:${book.publish_date} </p>
                 </div>
             </div>`;
             
